@@ -15,3 +15,10 @@ vim.filetype.add({
     ["%.env%.[%w_.-]+"] = "dotenv",
   },
 })
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = ".env*",
+  callback = function(args)
+    vim.diagnostic.enable(false, { bufnr = args.buf })
+  end,
+})
