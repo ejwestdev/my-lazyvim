@@ -1,5 +1,10 @@
 return {
   {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    opts = {},
+  },
+  {
     "catppuccin/nvim",
     name = "catppuccin",
     lazy = false,
@@ -11,7 +16,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-frappe",
+      colorscheme = "gruvbox",
     },
   },
 }
