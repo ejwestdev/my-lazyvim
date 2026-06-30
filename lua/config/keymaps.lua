@@ -5,3 +5,14 @@
 -- Center cursor after half-page scroll
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half-page down and center" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half-page up and center" })
+
+-- Toggle LSP inlay hints
+vim.keymap.set("n", "<leader>th", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, { desc = "Toggle inlay hints" })
+
+-- Toggle diagnostic virtual text
+vim.keymap.set("n", "<leader>td", function()
+  local vt = vim.diagnostic.config().virtual_text
+  vim.diagnostic.config({ virtual_text = not vt })
+end, { desc = "Toggle diagnostic virtual text" })

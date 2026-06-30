@@ -13,10 +13,4 @@ return {
       flavour = "frappe",
     },
   },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "tokyonight-day",
-    },
-  },
 }
