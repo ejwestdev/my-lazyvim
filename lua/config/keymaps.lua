@@ -16,3 +16,10 @@ vim.keymap.set("n", "<leader>td", function()
   local vt = vim.diagnostic.config().virtual_text
   vim.diagnostic.config({ virtual_text = not vt })
 end, { desc = "Toggle diagnostic virtual text" })
+
+-- Toggle diagnostic virtual text and underlines
+vim.keymap.set("n", "<leader>tf", function()
+  local config = vim.diagnostic.config()
+  local new_val = not (config.virtual_text or config.underline)
+  vim.diagnostic.config({ virtual_text = new_val, underline = new_val })
+end, { desc = "Toggle diagnostic virtual text and underlines" })
