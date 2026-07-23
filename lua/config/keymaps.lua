@@ -23,3 +23,25 @@ vim.keymap.set("n", "<leader>tf", function()
   local new_val = not (config.virtual_text or config.underline)
   vim.diagnostic.config({ virtual_text = new_val, underline = new_val })
 end, { desc = "Toggle diagnostic virtual text and underlines" })
+
+-- Toggle statusline
+vim.keymap.set("n", "<leader>ts", function()
+  if vim.o.laststatus == 0 then
+    vim.o.laststatus = vim.g._saved_laststatus or 3
+  else
+    vim.g._saved_laststatus = vim.o.laststatus
+    vim.o.laststatus = 0
+  end
+end, { desc = "Toggle statusline" })
+
+-- Override <leader>uD to also toggle statusline
+vim.keymap.set("n", "<leader>uD", function()
+  Snacks.toggle.get("dim"):toggle()
+  if Snacks.dim.enabled then
+    vim.g._saved_laststatus = vim.o.laststatus
+    vim.o.laststatus = 0
+  else
+    vim.o.laststatus = vim.g._saved_laststatus or 3
+  end
+end, { desc = "Toggle Dim + Statusline" })
+
